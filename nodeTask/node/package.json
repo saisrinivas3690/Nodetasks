@@ -1,0 +1,24 @@
+{
+  "name": "node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "compress-images": "^2.0.5",
+    "express": "^4.18.1",
+    "gifsicle": "^5.2.1",
+    "mysql2": "^2.3.3",
+    "pngquant-bin": "^6.0.1",
+    "request": "^2.88.2",
+    "sharp": "^0.30.4",
+    "tinify": "^1.6.1",
+    "why-is-node-running": "^2.2.2"
+  }
+}

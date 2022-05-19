@@ -1,0 +1,53 @@
+Ivan Derevianko
+
+Blog
+Experience
+Contacts
+About
+[Fix] Error Code: 1175 You are using safe update mode
+2019-11-282 Comments
+If you try to update a row in the MySQL database by using Workbench without specifying Key column in the WHERE clause you will get the following error:
+
+Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column. To disable safe mode, toggle the option in Preferences -> SQL Editor and reconnect.
+Error Code 1175 is telling you that you are in the safe mode, this is mode is enabled by default in MySQL Workbench, and it helps you prevent some unintentional updates to the database. This is a client-side setting (the same as --safe-updates in the mysql client) so there's not much you can do to disable it on the server-side.
+
+There are few ways you can fix this, but I would not recommend you disabling it permanently, it's better to disable it, execute your update statement and then enable this setting again.
+
+ErrorCode 1175 Safe Update Mode Fix
+
+How to fix Error Code 1175
+The simple fix is to disable this setting with an SQL statement, then execute the UPDATE statement and then enable it again:
+
+-- disable safe update mode
+SET SQL_SAFE_UPDATES=0;
+-- execute update statement
+UPDATE table SET column='value';
+-- enable safe update mode
+SET SQL_SAFE_UPDATES=1;
+There is another way to disable this mode permanently in MySQL Workbench (I do not recommend you disable this mode entirely, it's better to use the previous approach to the temporary disable the safe update mode)
+
+Disable Safe Update Mode
+To permanently disable safe update mode in MySQL Workbench 8.0 you should do the following:
+
+Go to Edit --> PreferencesMySQL Workbench Edit Preferences Menu
+Click "SQL Editor" tab and uncheck "Safe Updates" (rejects UPDATEs and DELETEs with no restrictions) check boxMySQL Workbench SQL Editor Safe Update
+Query --> Reconnect to Server
+In this way, you will permanently disable the Safe Update mode, so all of your updates and deletes can be executed without specifying WHERE clause at all. Be careful, you can delete all data from the table in this case.
+
+P.S. this is just a reminder for myself on how to disable this setting, I am tired of googling it every time I need to update something directly in the database (I would not recommend doing it either, but sometimes you have to).
+
+Previous
+Next
+2 comments
+pavithra2021-03-09 05:58:56
+it worked for me by using this syntax:
+SET sql_safe_update=0;
+
+G. Isaac2021-09-20 16:57:07
+Useful information, thanks
+
+Name
+Comment
+fixMySQLhow tocode snippetMySql Workbench
+
+Copyright © 2022 Ivan Derevianko

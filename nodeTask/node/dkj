@@ -1,0 +1,14 @@
+      //   destinationPath = destinationPath.split('/')
+      //   console.log(destinationPath)
+      //   const indexOfFile = destinationPath.indexOf('source folder')
+      //   destinationPath[indexOfFile] = 'destination folder'
+      //   destinationPath = destinationPath.join('/')
+
+
+      //   destinationPath = destinationPath.split('/')
+      //   console.log(destinationPath)
+      //   const indexOfFile = destinationPath.indexOf('source folder')
+      //   destinationPath[indexOfFile] = 'destination folder'
+      //   destinationPath = destinationPath.join('/')
+
+      
